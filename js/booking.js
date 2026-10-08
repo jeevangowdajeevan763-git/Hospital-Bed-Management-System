@@ -34,8 +34,10 @@ function showError(input) {
   err.textContent = input.validity.valid ? "" : input.validationMessage;
 }
 
+// Mark a field as touched, so the green/red border shows only after use
 form.querySelectorAll("input, select").forEach(function (el) {
   el.addEventListener("input", function () {
+    el.classList.add("touched");
     if (el.id === "phone") {
       el.setCustomValidity(
         el.validity.patternMismatch ? "Enter a valid 10 digit mobile number" : ""
@@ -50,7 +52,10 @@ form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
   if (!form.checkValidity()) {
-    form.querySelectorAll("input, select").forEach(showError);
+    form.querySelectorAll("input, select").forEach(function (el) {
+      el.classList.add("touched");
+      showError(el);
+    });
     form.reportValidity();
     msg.className = "bad";
     msg.textContent = "Please fix the highlighted fields.";
@@ -112,7 +117,8 @@ form.addEventListener("submit", async function (e) {
     msg.className = "ok";
     msg.textContent = "Booked! " + patient + " is assigned bed " + bed.bed_number + ".";
     form.reset();
-    form.querySelectorAll(".error").forEach(function (e) { e.textContent = ""; });
+    form.querySelectorAll(".error").forEach(function (er) { er.textContent = ""; });
+    form.querySelectorAll(".touched").forEach(function (el) { el.classList.remove("touched"); });
 
   } catch (err) {
     msg.className = "bad";
