@@ -1,16 +1,51 @@
-.steps { padding-left: 1.5rem; }
-.steps li { margin-bottom: .6rem; }
-
-.legend ul { list-style: none; padding: 0; margin: 0; }
-.legend li { margin-bottom: .4rem; }
-
-.dot {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  margin-right: .5rem;
+/* Ordered list as numbered step cards */
+.steps {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: .9rem;
+  padding: 0;
+  margin: 1.2rem 0 0;
 }
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 1rem 1.2rem 1rem 4rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .2s;
+}
+.steps li:hover { transform: translateX(6px); }
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Color legend */
+.legend h3 { margin: 0 0 .8rem; }
+.legend ul { display: flex; flex-wrap: wrap; gap: .8rem; list-style: none; padding: 0; margin: 0; }
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  padding: .4rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: .5rem; }
 .dot.available { background: var(--available); }
 .dot.occupied { background: var(--occupied); }
 .dot.reserved { background: var(--reserved); }
