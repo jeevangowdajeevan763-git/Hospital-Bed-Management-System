@@ -23,13 +23,19 @@
     <h2>Book a bed</h2>
 
     <form id="bookForm" class="card" novalidate>
+
+      <!-- Mandatory field note (inline CSS) -->
+      <p style="grid-column: 1 / -1; margin: 0; padding: .6rem .9rem; background: rgba(220, 38, 38, .1); border-left: 4px solid red; border-radius: 6px; font-size: .9rem;">
+        <span style="color: red; font-weight: 700;">*</span> indicates a mandatory field
+      </p>
+
       <div class="field">
-        <label for="name">*Patient name</label>
+        <label for="name"><span style="color: red; font-weight: 700;">*</span>Patient name</label>
         <input type="text" id="name" required minlength="3" placeholder="Full name">
       </div>
 
       <div class="field">
-        <label for="phone">*Phone (10 digits)</label>
+        <label for="phone"><span style="color: red; font-weight: 700;">*</span>Phone (10 digits)</label>
         <input type="tel" id="phone" required pattern="[6-9][0-9]{9}" placeholder="9876543210">
       </div>
 
@@ -39,14 +45,14 @@
       </div>
 
       <div class="field">
-        <label for="ward">*Ward</label>
+        <label for="ward"><span style="color: red; font-weight: 700;">*</span>Ward</label>
         <select id="ward" required>
           <option value="">Select ward</option>
         </select>
       </div>
 
       <div class="field">
-        <label for="date">*Admission date</label>
+        <label for="date"><span style="color: red; font-weight: 700;">*</span>Admission date</label>
         <input type="date" id="date" required>
       </div>
 
@@ -57,7 +63,8 @@
       </fieldset>
 
       <label class="terms">
-        <input type="checkbox" id="terms" required> I confirm the details are correct
+        <input type="checkbox" id="terms" required>
+        <span><span style="color: red; font-weight: 700;">*</span>I confirm the details are correct</span>
       </label>
 
       <button type="submit" class="btn">Confirm booking</button>
