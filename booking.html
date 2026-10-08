@@ -24,12 +24,12 @@
 
     <form id="bookForm" class="card" novalidate>
       <div class="field">
-        <label for="name">Patient name</label>
+        <label for="name">*Patient name</label>
         <input type="text" id="name" required minlength="3" placeholder="Full name">
       </div>
 
       <div class="field">
-        <label for="phone">Phone (10 digits)</label>
+        <label for="phone">*Phone (10 digits)</label>
         <input type="tel" id="phone" required pattern="[6-9][0-9]{9}" placeholder="9876543210">
       </div>
 
@@ -39,14 +39,14 @@
       </div>
 
       <div class="field">
-        <label for="ward">Ward</label>
+        <label for="ward">*Ward</label>
         <select id="ward" required>
           <option value="">Select ward</option>
         </select>
       </div>
 
       <div class="field">
-        <label for="date">Admission date</label>
+        <label for="date">*Admission date</label>
         <input type="date" id="date" required>
       </div>
 
