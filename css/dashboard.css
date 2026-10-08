@@ -1,0 +1,48 @@
+/* GRID: 4 summary cards */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.summary-grid h3 { margin: 0; font-size: 1rem; }
+
+.count {
+  margin: .25rem 0 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* Colored left border on each card */
+.card.total { border-left: 6px solid var(--primary); }
+.card.available { border-left: 6px solid var(--available); }
+.card.occupied { border-left: 6px solid var(--occupied); }
+.card.reserved { border-left: 6px solid var(--reserved); }
+
+.card.available .count { color: var(--available); }
+.card.occupied .count { color: var(--occupied); }
+.card.reserved .count { color: var(--reserved); }
+
+/* TABLE */
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+}
+
+caption { text-align: left; padding: .5rem 0; }
+
+th, td {
+  border: 1px solid var(--border);
+  padding: .6rem;
+  text-align: left;
+}
+
+thead th { background: var(--primary); color: #fff; }
+tbody tr:nth-child(even) { background: rgba(14, 116, 144, .08); }
+tbody tr:hover { background: rgba(217, 119, 6, .15); }
+
+#status { color: var(--occupied); }

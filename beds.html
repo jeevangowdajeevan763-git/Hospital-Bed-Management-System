@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beds - BedCare</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/beds.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="logo">BedCare</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="beds.html">Beds</a>
+      <a href="booking.html">Booking</a>
+      <a href="help.html">Help</a>
+    </nav>
+    <button id="themeBtn" type="button">Toggle theme</button>
+  </header>
+
+  <main>
+    <h2>All Beds</h2>
+
+    <!-- CHECKBOX FILTERS -->
+    <section class="card filters">
+      <fieldset>
+        <legend>Status</legend>
+        <label><input type="checkbox" class="status-filter" value="available" checked> Available</label>
+        <label><input type="checkbox" class="status-filter" value="occupied" checked> Occupied</label>
+        <label><input type="checkbox" class="status-filter" value="reserved" checked> Reserved</label>
+      </fieldset>
+      <fieldset>
+        <legend>Ward</legend>
+        <div id="wardBox"></div>
+      </fieldset>
+      <input type="search" id="searchBox" placeholder="Search bed or patient...">
+    </section>
+
+    <p id="status" role="status"></p>
+
+    <!-- GRID of bed cards -->
+    <section>
+      <h2>Bed grid</h2>
+      <div class="bed-grid" id="bedGrid"></div>
+    </section>
+
+    <!-- TABLE -->
+    <section>
+      <h2>Bed table</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Click a column heading to sort</caption>
+          <thead>
+            <tr>
+              <th data-key="bed_number">Bed</th>
+              <th data-key="ward">Ward</th>
+              <th data-key="status">Status</th>
+              <th data-key="patient_name">Patient</th>
+              <th data-key="updated_at">Last updated</th>
+            </tr>
+          </thead>
+          <tbody id="bedBody"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" id="tableTotal"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 BedCare. Web Hackathon.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/beds.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - BedCare</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="logo">BedCare</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="beds.html">Beds</a>
+      <a href="booking.html">Booking</a>
+      <a href="help.html">Help</a>
+    </nav>
+    <button id="themeBtn" type="button">Toggle theme</button>
+  </header>
+
+  <main>
+    <h2>Hospital Dashboard</h2>
+    <p>Live bed availability. Updates automatically.</p>
+
+    <section class="summary-grid">
+      <article class="card total">
+        <h3>Total beds</h3>
+        <p class="count" id="totalCount">0</p>
+      </article>
+      <article class="card available">
+        <h3>Available</h3>
+        <p class="count" id="availableCount">0</p>
+      </article>
+      <article class="card occupied">
+        <h3>Occupied</h3>
+        <p class="count" id="occupiedCount">0</p>
+      </article>
+      <article class="card reserved">
+        <h3>Reserved</h3>
+        <p class="count" id="reservedCount">0</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Beds by ward</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Live count for each ward</caption>
+          <thead>
+            <tr>
+              <th>Ward</th>
+              <th>Available</th>
+              <th>Occupied</th>
+              <th>Reserved</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="wardBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="status" role="status"></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 BedCare. Web Hackathon.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

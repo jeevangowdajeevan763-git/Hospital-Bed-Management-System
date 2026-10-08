@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Booking - BedCare</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/booking.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="logo">BedCare</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="beds.html">Beds</a>
+      <a href="booking.html">Booking</a>
+      <a href="help.html">Help</a>
+    </nav>
+    <button id="themeBtn" type="button">Toggle theme</button>
+  </header>
+
+  <main>
+    <h2>Book a bed</h2>
+
+    <form id="bookForm" class="card" novalidate>
+      <div class="field">
+        <label for="name">Patient name</label>
+        <input type="text" id="name" required minlength="3" placeholder="Full name">
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone (10 digits)</label>
+        <input type="tel" id="phone" required pattern="[6-9][0-9]{9}" placeholder="9876543210">
+      </div>
+
+      <div class="field">
+        <label for="age">Age (0 to 120)</label>
+        <input type="number" id="age" required min="0" max="120">
+      </div>
+
+      <div class="field">
+        <label for="ward">Ward</label>
+        <select id="ward" required>
+          <option value="">Select ward</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="date">Admission date</label>
+        <input type="date" id="date" required>
+      </div>
+
+      <fieldset>
+        <legend>Special needs</legend>
+        <label><input type="checkbox" id="oxygen"> Needs oxygen</label>
+        <label><input type="checkbox" id="ventilator"> Needs ventilator</label>
+      </fieldset>
+
+      <label class="terms">
+        <input type="checkbox" id="terms" required> I confirm the details are correct
+      </label>
+
+      <button type="submit" class="btn">Confirm booking</button>
+      <p id="msg" role="status"></p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 BedCare. Web Hackathon.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

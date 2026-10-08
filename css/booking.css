@@ -1,0 +1,41 @@
+/* GRID form: 2 columns */
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.field { display: flex; flex-direction: column; }
+.field label { font-weight: 600; margin-bottom: .25rem; }
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select {
+  padding: .55rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* These items take the full width */
+fieldset, .terms, form .btn, #msg { grid-column: 1 / -1; }
+
+fieldset { border: 1px solid var(--border); border-radius: 6px; }
+fieldset label { margin-right: 1rem; }
+
+/* Validity styling */
+input:valid:not(:placeholder-shown),
+select:valid { border-color: var(--available); }
+input:invalid:not(:placeholder-shown) { border-color: var(--occupied); }
+
+.error { color: var(--occupied); font-size: .85rem; }
+#msg.ok { color: var(--available); font-weight: 600; }
+#msg.bad { color: var(--occupied); font-weight: 600; }
+
+@media (max-width: 600px) {
+  form { grid-template-columns: 1fr; }
+}
