@@ -27,10 +27,11 @@ fieldset, .terms, form .btn, #msg { grid-column: 1 / -1; }
 fieldset { border: 1px solid var(--border); border-radius: 6px; }
 fieldset label { margin-right: 1rem; }
 
-/* Validity styling */
-input:valid:not(:placeholder-shown),
-select:valid { border-color: var(--available); }
-input:invalid:not(:placeholder-shown) { border-color: var(--occupied); }
+/* Validity styling: only after the user touches a field */
+input.touched:valid,
+select.touched:valid { border-color: var(--available); }
+input.touched:invalid,
+select.touched:invalid { border-color: var(--occupied); }
 
 .error { color: var(--occupied); font-size: .85rem; }
 #msg.ok { color: var(--available); font-weight: 600; }
